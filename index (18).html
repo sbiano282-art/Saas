@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketiFlow - Ferramentas Essenciais de Marketing Digital | Gerador de Landing Pages, SEO, Links</title>
+    <meta name="description" content="MarketiFlow oferece ferramentas de marketing digital essenciais: gerador de landing pages, calculadora de SEO, encurtador de links e gerador de hashtags. Otimize sua estratégia de marketing digital com MarketiFlow.">
+    <meta name="keywords" content="marketing digital, landing page, SEO, encurtador de links, hashtags, títulos criativos, ferramentas de marketing, otimização SEO, marketing online, SaaS marketing">
+    <meta name="author" content="MarketiFlow Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marketiflow.com/">
+    <meta property="og:title" content="MarketiFlow - Ferramentas Essenciais de Marketing Digital">
+    <meta property="og:description" content="Gerador de landing pages, calculadora de SEO, encurtador de links e gerador de hashtags. Tudo em um só lugar para otimizar seu marketing digital.">
+    <meta property="og:image" content="https://marketiflow.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://marketiflow.com/">
+    <meta property="twitter:title" content="MarketiFlow - Ferramentas Essenciais de Marketing Digital">
+    <meta property="twitter:description" content="Gerador de landing pages, calculadora de SEO, encurtador de links e gerador de hashtags. Tudo em um só lugar para otimizar seu marketing digital.">
+    <meta property="twitter:image" content="https://marketiflow.com/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://marketiflow.com/">
+    
+    <!-- Structured Data - JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MarketiFlow",
+        "description": "Ferramentas essenciais de marketing digital: gerador de landing pages, calculadora de SEO, encurtador de links e gerador de hashtags",
+        "url": "https://marketiflow.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "MarketiFlow Team"
+        },
+        "featureList": [
+            "Gerador de Landing Pages Estáticas",
+            "Calculadora de SEO",
+            "Encurtador de Links",
+            "Gerador de Hashtags e Títulos Atrativos"
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos CSS globais e responsivos */
+        :root {
+            --primary-color: #4A90E2; /* Azul principal */
+            --secondary-color: #F0F2F5; /* Cinza claro para fundo */
+            --text-color: #333; /* Cor de texto padrão */
+            --card-background: #FFFFFF; /* Fundo dos cards */
+            --border-color: #E0E0E0; /* Cor da borda */
+            --shadow-color: rgba(0, 0, 0, 0.1); /* Cor da sombra */
+            --hover-color: #357ABD; /* Azul mais escuro para hover */
+            --dark-mode-bg: #1A202C; /* Fundo modo escuro */
+            --dark-mode-card: #2D3748; /* Card modo escuro */
+            --dark-mode-text: #E2E8F0; /* Texto modo escuro */
+            --dark-mode-border: #4A5568; /* Borda modo escuro */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Estilos para o modo escuro */
+        body.dark-mode {
+            background-color: var(--dark-mode-bg);
+            color: var(--dark-mode-text);
+        }
+
+        body.dark-mode .sidebar {
+            background-color: var(--dark-mode-card);
+            border-right-color: var(--dark-mode-border);
+        }
+
+        body.dark-mode .card {
+            background-color: var(--dark-mode-card);
+            box-shadow: 0 4px 8px var(--shadow-color);
+            border-color: var(--dark-mode-border);
+        }
+
+        body.dark-mode .button, body.dark-mode .mode-toggle {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        body.dark-mode .button:hover, body.dark-mode .mode-toggle:hover {
+            background-color: var(--hover-color);
+        }
+
+        body.dark-mode input[type="text"], body.dark-mode textarea {
+            background-color: var(--dark-mode-bg);
+            color: var(--dark-mode-text);
+            border-color: var(--dark-mode-border);
+        }
+
+        /* Layout principal com menu lateral */
+        .sidebar {
+            width: 250px;
+            background-color: var(--card-background);
+            padding: 20px;
+            box-shadow: 2px 0 5px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .sidebar h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Cards de funcionalidade */
+        .card {
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        /* Formulários e inputs */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 22px); /* Ajuste para padding e borda */
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        /* Botões */
+        .button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        /* Área de resultados */
+        .result-area {
+            background-color: var(--secondary-color);
+            border: 1px dashed var(--border-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+            transition: background-color 0.3s, border-color 0.3s;
+            display: block;
+            min-height: 50px;
+        }
+
+        body.dark-mode .result-area {
+            background-color: var(--dark-mode-bg);
+            border-color: var(--dark-mode-border);
+        }
+
+        /* Toggle de modo claro/escuro */
+        .mode-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto; /* Empurra para o final da sidebar */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .mode-toggle:hover {
+            background-color: var(--hover-color);
+            transform: rotate(15deg);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .sidebar ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .sidebar ul li {
+                margin: 5px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .mode-toggle {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+        <h2>MarketiFlow</h2>
+        <nav>
+            <ul>
+                <li><a href="#landing-page-generator" class="active"><i class="fas fa-file-alt"></i> Gerador de Landing Pages</a></li>
+                <li><a href="#seo-calculator"><i class="fas fa-calculator"></i> Calculadora de SEO</a></li>
+                <li><a href="#link-shortener"><i class="fas fa-link"></i> Encurtador de Links</a></li>
+                <li><a href="#hashtag-generator"><i class="fas fa-hashtag"></i> Gerador de Hashtags e Títulos</a></li>
+            </ul>
+        </nav>
+        <button class="mode-toggle" aria-label="Alternar modo claro/escuro">
+            <i class="fas fa-moon"></i>
+        </button>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <!-- Gerador de Landing Pages -->
+        <section id="landing-page-generator" class="card active-tool">
+            <h3>Gerador de Landing Pages Estáticas</h3>
+            <div class="form-group">
+                <label for="lp-title">Título Principal:</label>
+                <input type="text" id="lp-title" placeholder="Ex: Aumente Suas Vendas em 30%">
+            </div>
+            <div class="form-group">
+                <label for="lp-subtitle">Subtítulo:</label>
+                <input type="text" id="lp-subtitle" placeholder="Ex: Solução completa para o seu negócio.">
+            </div>
+            <div class="form-group">
+                <label for="lp-description">Texto Descritivo:</label>
+                <textarea id="lp-description" placeholder="Ex: Descubra como nossa ferramenta pode transformar sua estratégia de marketing digital."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="lp-cta">Call-to-action (Botão):</label>
+                <input type="text" id="lp-cta" placeholder="Ex: Quero Saber Mais!">
+            </div>
+            <button class="button" id="generate-lp-button"><i class="fas fa-code"></i> Gerar Landing Page</button>
+            <button class="button" id="preview-lp-button"><i class="fas fa-eye"></i> Visualizar</button>
+            <div class="result-area" id="lp-output"></div>
+            <button class="button premium-feature" id="export-lp-button" style="display: none;"><i class="fas fa-download"></i> Exportar .zip (Premium)</button>
+        </section>
+
+        <!-- Calculadora de SEO -->
+        <section id="seo-calculator" class="card">
+            <h3>Calculadora de SEO</h3>
+            <div class="form-group">
+                <label for="seo-text">Insira seu texto para análise:</label>
+                <textarea id="seo-text" placeholder="Cole seu artigo, post ou descrição de produto aqui..."></textarea>
+            </div>
+            <button class="button" id="analyze-seo-button"><i class="fas fa-chart-line"></i> Analisar SEO</button>
+            <div class="result-area" id="seo-output">
+                <p><strong>Número de Palavras:</strong> <span id="word-count">0</span></p>
+                <p><strong>Número de Caracteres:</strong> <span id="char-count">0</span></p>
+                <p><strong>Frequência de Palavras-chave:</strong> <span id="keyword-frequency">N/A</span></p>
+                <p><strong>Sugestão de Meta Title:</strong> <span id="meta-title-suggestion">N/A</span></p>
+                <p><strong>Sugestão de Meta Description:</strong> <span id="meta-description-suggestion">N/A</span></p>
+            </div>
+            <button class="button premium-feature" id="export-seo-button" style="display: none;"><i class="fas fa-file-pdf"></i> Exportar .pdf (Premium)</button>
+        </section>
+
+        <!-- Encurtador de Links -->
+        <section id="link-shortener" class="card">
+            <h3>Encurtador de Links</h3>
+            <div class="form-group">
+                <label for="long-url">URL Longa:</label>
+                <input type="text" id="long-url" placeholder="Ex: https://seusite.com/pagina-muito-longa-com-parametros">
+            </div>
+            <button class="button" id="shorten-link-button"><i class="fas fa-cut"></i> Encurtar Link</button>
+            <div class="result-area" id="short-url-output">
+                <p><strong>Link Encurtado:</strong> <span id="shortened-link">N/A</span> <button class="button" id="copy-link-button" style="display: none;"><i class="fas fa-copy"></i> Copiar</button></p>
+            </div>
+            <p class="premium-note">Encurtamento ilimitado de links disponível na versão Premium.</p>
+        </section>
+
+        <!-- Gerador de Hashtags e Títulos -->
+        <section id="hashtag-generator" class="card">
+            <h3>Gerador de Hashtags e Títulos Atrativos</h3>
+            <div class="form-group">
+                <label for="theme-keyword">Tema ou Palavra-chave:</label>
+                <input type="text" id="theme-keyword" placeholder="Ex: marketing digital, culinária vegana, viagens baratas">
+            </div>
+            <button class="button" id="generate-hashtags-button"><i class="fas fa-lightbulb"></i> Gerar</button>
+            <div class="result-area" id="hashtags-titles-output">
+                <p><strong>Hashtags Relevantes:</strong> <span id="generated-hashtags">N/A</span></p>
+                <p><strong>Títulos Criativos:</strong> <span id="generated-titles">N/A</span></p>
+            </div>
+            <p class="premium-note">Gere mais hashtags e títulos na versão Premium.</p>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript para interatividade e funcionalidades
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seletores de elementos DOM
+            const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+            const cards = document.querySelectorAll('.main-content .card');
+            const modeToggle = document.querySelector('.mode-toggle');
+            const body = document.body;
+
+            // Funcionalidade de alternar modo claro/escuro
+            modeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                // Salvar preferência no LocalStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    modeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ícone de sol para modo escuro
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    modeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ícone de lua para modo claro
+                }
+            });
+
+            // Carregar preferência de tema do LocalStorage
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+
+            // Funcionalidade de navegação do menu lateral
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Remover classe 
+
+
+active' de todos os links e cards
+                    sidebarLinks.forEach(item => item.classList.remove("active"));
+                    cards.forEach(card => card.classList.remove("active-tool"));
+
+                    // Adicionar classe 'active' ao link clicado
+                    link.classList.add("active");
+
+                    // Mostrar o card correspondente
+                    const targetId = link.getAttribute("href").substring(1);
+                    document.getElementById(targetId).classList.add("active-tool");
+                });
+            });
+
+            // --- Gerador de Landing Pages Estáticas ---
+            const lpTitleInput = document.getElementById("lp-title");
+            const lpSubtitleInput = document.getElementById("lp-subtitle");
+            const lpDescriptionInput = document.getElementById("lp-description");
+            const lpCtaInput = document.getElementById("lp-cta");
+            const generateLpButton = document.getElementById("generate-lp-button");
+            const previewLpButton = document.getElementById("preview-lp-button");
+            const lpOutput = document.getElementById("lp-output");
+
+            // Função para gerar o HTML da Landing Page
+            const generateLandingPage = () => {
+                const title = lpTitleInput.value || "Seu Título Principal";
+                const subtitle = lpSubtitleInput.value || "Seu Subtítulo Atraente";
+                const description = lpDescriptionInput.value || "Este é o texto descritivo da sua landing page. Ele deve ser conciso e persuasivo, destacando os benefícios do seu produto ou serviço.";
+                const cta = lpCtaInput.value || "Ação Principal";
+
+                const htmlContent = `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #4A90E2;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #666;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #4A90E2;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #357ABD;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>${title}</h1>
+        <h2>${subtitle}</h2>
+        <p>${description}</p>
+        <a href="#" class="cta-button">${cta}</a>
+    </div>
+</body>
+</html>
+                `;
+                lpOutput.textContent = htmlContent;
+                // Salvar entradas no LocalStorage
+                localStorage.setItem("lpTitle", lpTitleInput.value);
+                localStorage.setItem("lpSubtitle", lpSubtitleInput.value);
+                localStorage.setItem("lpDescription", lpDescriptionInput.value);
+                localStorage.setItem("lpCta", lpCtaInput.value);
+            };
+
+            // Carregar entradas salvas do LocalStorage
+            lpTitleInput.value = localStorage.getItem("lpTitle") || "";
+            lpSubtitleInput.value = localStorage.getItem("lpSubtitle") || "";
+            lpDescriptionInput.value = localStorage.getItem("lpDescription") || "";
+            lpCtaInput.value = localStorage.getItem("lpCta") || "";
+
+            // Event Listeners para o Gerador de Landing Pages
+            generateLpButton.addEventListener("click", generateLandingPage);
+            previewLpButton.addEventListener("click", () => {
+                const newWindow = window.open();
+                newWindow.document.write(lpOutput.textContent);
+                newWindow.document.close();
+            });
+
+            // --- Calculadora de SEO ---
+            const seoTextInput = document.getElementById("seo-text");
+            const analyzeSeoButton = document.getElementById("analyze-seo-button");
+            const wordCountSpan = document.getElementById("word-count");
+            const charCountSpan = document.getElementById("char-count");
+            const keywordFrequencySpan = document.getElementById("keyword-frequency");
+            const metaTitleSuggestionSpan = document.getElementById("meta-title-suggestion");
+            const metaDescriptionSuggestionSpan = document.getElementById("meta-description-suggestion");
+
+            // Função para analisar o texto para SEO
+            const analyzeSeo = () => {
+                const text = seoTextInput.value;
+                // Contagem de palavras
+                const words = text.match(/\b\w+\b/g) || [];
+                wordCountSpan.textContent = words.length;
+
+                // Contagem de caracteres
+                charCountSpan.textContent = text.length;
+
+                // Frequência de palavras-chave
+                const wordFrequency = {};
+                words.forEach(word => {
+                    const lowerCaseWord = word.toLowerCase();
+                    wordFrequency[lowerCaseWord] = (wordFrequency[lowerCaseWord] || 0) + 1;
+                });
+                // Ordenar por frequência e formatar
+                const sortedKeywords = Object.entries(wordFrequency)
+                    .sort(([, countA], [, countB]) => countB - countA)
+                    .map(([word, count]) => `${word} (${count})`)
+                    .join(", ");
+                keywordFrequencySpan.textContent = sortedKeywords || "N/A";
+
+                // Sugestão de Meta Title (primeiras palavras, até 60 caracteres)
+                let metaTitle = text.substring(0, 60);
+                if (metaTitle.length === 60 && text.length > 60) {
+                    metaTitle = metaTitle.substring(0, metaTitle.lastIndexOf(" ")) + "...";
+                }
+                metaTitleSuggestionSpan.textContent = metaTitle || "N/A";
+
+                // Sugestão de Meta Description (primeiras palavras, até 160 caracteres)
+                let metaDescription = text.substring(0, 160);
+                if (metaDescription.length === 160 && text.length > 160) {
+                    metaDescription = metaDescription.substring(0, metaDescription.lastIndexOf(" ")) + "...";
+                }
+                metaDescriptionSuggestionSpan.textContent = metaDescription || "N/A";
+
+                // Salvar entrada no LocalStorage
+                localStorage.setItem("seoText", seoTextInput.value);
+            };
+
+            // Carregar entrada salva do LocalStorage
+            seoTextInput.value = localStorage.getItem("seoText") || "";
+
+            // Event Listener para a Calculadora de SEO
+            analyzeSeoButton.addEventListener("click", analyzeSeo);
+
+            // --- Encurtador de Links ---
+            const longUrlInput = document.getElementById("long-url");
+            const shortenLinkButton = document.getElementById("shorten-link-button");
+            const shortenedLinkSpan = document.getElementById("shortened-link");
+            const copyLinkButton = document.getElementById("copy-link-button");
+
+            // Função para encurtar o link usando a API gratuita do is.gd
+            const shortenLink = async () => {
+                const longUrl = longUrlInput.value.trim();
+                if (!longUrl) {
+                    shortenedLinkSpan.textContent = "Por favor, insira uma URL válida.";
+                    copyLinkButton.style.display = "none";
+                    return;
+                }
+
+                // Validar se a URL tem protocolo
+                let urlToShorten = longUrl;
+                if (!longUrl.startsWith('http://') && !longUrl.startsWith('https://')) {
+                    urlToShorten = 'https://' + longUrl;
+                }
+
+                try {
+                    // Mostrar loading
+                    shortenedLinkSpan.textContent = "Encurtando...";
+                    copyLinkButton.style.display = "none";
+
+                    // Fazer requisição para a API do is.gd
+                    const encodedUrl = encodeURIComponent(urlToShorten);
+                    const apiUrl = `https://is.gd/create.php?format=simple&url=${encodedUrl}`;
+                    
+                    const response = await fetch(apiUrl);
+                    const result = await response.text();
+
+                    if (response.ok && !result.startsWith('Error:')) {
+                        // Sucesso - mostrar o link encurtado
+                        shortenedLinkSpan.textContent = result.trim();
+                        copyLinkButton.style.display = "inline-block";
+                    } else {
+                        // Erro da API
+                        shortenedLinkSpan.textContent = result.startsWith('Error:') ? result : "Erro ao encurtar o link. Tente novamente.";
+                        copyLinkButton.style.display = "none";
+                    }
+                } catch (error) {
+                    // Erro de rede ou CORS - usar fallback
+                    console.warn("Erro ao acessar API is.gd:", error);
+                    const fallbackShortUrl = `https://mkt.flow/${Math.random().toString(36).substring(2, 8)}`;
+                    shortenedLinkSpan.textContent = fallbackShortUrl + " (simulado)";
+                    copyLinkButton.style.display = "inline-block";
+                }
+
+                // Salvar entrada no LocalStorage
+                localStorage.setItem("longUrl", longUrlInput.value);
+            };
+
+            // Carregar entrada salva do LocalStorage
+            longUrlInput.value = localStorage.getItem("longUrl") || "";
+
+            // Event Listener para o Encurtador de Links
+            shortenLinkButton.addEventListener("click", shortenLink);
+            copyLinkButton.addEventListener("click", () => {
+                const textToCopy = shortenedLinkSpan.textContent;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert("Link copiado para a área de transferência!");
+                }).catch(err => {
+                    console.error("Erro ao copiar o link: ", err);
+                });
+            });
+
+            // --- Gerador de Hashtags e Títulos ---
+            const themeKeywordInput = document.getElementById("theme-keyword");
+            const generateHashtagsButton = document.getElementById("generate-hashtags-button");
+            const generatedHashtagsSpan = document.getElementById("generated-hashtags");
+            const generatedTitlesSpan = document.getElementById("generated-titles");
+
+            // Função para gerar hashtags e títulos
+            const generateHashtagsAndTitles = () => {
+                const keyword = themeKeywordInput.value.toLowerCase();
+                let hashtags = [];
+                let titles = [];
+
+                // Lógica de geração baseada na palavra-chave (exemplo simples)
+                if (keyword.includes("marketing digital")) {
+                    hashtags = ["#MarketingDigital", "#MarketingOnline", "#EstrategiaDigital", "#SEO", "#ConteudoDigital", "#RedesSociais", "#InboundMarketing", "#PerformanceDigital", "#TransformacaoDigital", "#MarketingDeResultados"];
+                    titles = [
+                        "Domine o Marketing Digital: Guia Completo para o Sucesso Online",
+                        "As 5 Estratégias de Marketing Digital que Você Precisa Conhecer",
+                        "Como Aumentar Suas Vendas com Marketing Digital em 2025",
+                        "Marketing Digital para Iniciantes: Seu Primeiro Passo para o Sucesso",
+                        "O Futuro do Marketing Digital: Tendências e Inovações"
+                    ];
+                } else if (keyword.includes("culinária vegana")) {
+                    hashtags = ["#CulinariaVegana", "#ReceitasVeganas", "#Veganismo", "#ComidaVegana", "#SaudeVegana", "#PlantBased", "#VeganoBrasil", "#AlimentacaoSaudavel", "#VidaVegana", "#ReceitasFaceis"];
+                    titles = [
+                        "Delícias Veganas: Receitas Fáceis e Saborosas para o Dia a Dia",
+                        "Culinária Vegana para Iniciantes: Guia Essencial",
+                        "Transforme Sua Cozinha: 10 Receitas Veganas Imperdíveis",
+                        "Benefícios da Culinária Vegana para Sua Saúde e o Planeta",
+                        "Sobremesas Veganas: O Prazer Sem Culpa"
+                    ];
+                } else if (keyword.includes("viagens baratas")) {
+                    hashtags = ["#ViagensBaratas", "#DicasDeViagem", "#ViajarBarato", "#EconomizarNaViagem", "#DestinosBaratos", "#Mochilao", "#PassagensBaratas", "#HospedagemBarata", "#ViagemDosSonhos", "#ExplorarOMundo"];
+                    titles = [
+                        "Como Viajar Barato: O Guia Definitivo para Economizar em Suas Aventuras",
+                        "10 Destinos Incríveis para Viajar com Pouco Dinheiro",
+                        "Passagens Aéreas Baratas: Segredos para Encontrar as Melhores Ofertas",
+                        "Hospedagem Econômica: Onde Ficar Sem Gastar Muito",
+                        "Planejamento de Viagem: Dicas Essenciais para Economizar"
+                    ];
+                } else {
+                    // Geração genérica se a palavra-chave não for específica
+                    hashtags = [
+                        `#${keyword.replace(/\s/g, "")}`,
+                        `#${keyword.replace(/\s/g, "") + "Dicas"}`,
+                        `#${keyword.replace(/\s/g, "") + "Guia"}`,
+                        `#${keyword.replace(/\s/g, "") + "Online"}`,
+                        `#${keyword.replace(/\s/g, "") + "2025"}`,
+                        "#Inovacao", "#Tendencias", "#Sucesso", "#Digital", "#Estrategia"
+                    ];
+                    titles = [
+                        `O Guia Completo para ${keyword}: Tudo o que Você Precisa Saber`,
+                        `Descubra os Segredos de ${keyword}: Dicas e Truques Essenciais`,
+                        `Como Dominar ${keyword}: Um Passo a Passo para o Sucesso`,
+                        `As Melhores Ferramentas para ${keyword} em 2025`,
+                        `${keyword}: Tendências e Oportunidades para o Futuro`
+                    ];
+                }
+
+                generatedHashtagsSpan.textContent = hashtags.join(", ");
+                generatedTitlesSpan.textContent = titles.join("\n");
+
+                // Salvar entrada no LocalStorage
+                localStorage.setItem("themeKeyword", themeKeywordInput.value);
+            };
+
+            // Carregar entrada salva do LocalStorage
+            themeKeywordInput.value = localStorage.getItem("themeKeyword") || "";
+
+            // Event Listener para o Gerador de Hashtags e Títulos
+            generateHashtagsButton.addEventListener("click", generateHashtagsAndTitles);
+
+            // Inicializar a exibição da primeira ferramenta
+            document.querySelector(".sidebar ul li a").click();
+        });
+    </script>
+</body>
+</html>
+
+
